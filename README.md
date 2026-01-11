@@ -127,3 +127,5 @@ Figma：https://www.figma.com/design/uqfL4d5oiPXVMyGqvIRhvt/%E7%84%A1%E9%A1%8C?n
 
 - [x] パスワード
 
+### ER図
+ER図 : https://gyazo.com/d4bc15a4bfa79e1c07fd989c233c550d
