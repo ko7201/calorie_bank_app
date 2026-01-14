@@ -128,4 +128,4 @@ Figma：[![Image from Gyazo](https://i.gyazo.com/d4bc15a4bfa79e1c07fd989c233c550
 - [x] パスワード
 
 ### ER図
-ER図 : https://gyazo.com/d4bc15a4bfa79e1c07fd989c233c550d
+ER図 : [![Image from Gyazo](https://i.gyazo.com/9b4f42599cacb194edb7a967e5861c6b.png)](https://gyazo.com/9b4f42599cacb194edb7a967e5861c6b)
