@@ -119,7 +119,7 @@ Calorie_Bankは、これらの心理的負担を軽減するようなアプロ�
 - ActionMailer
 
 ### 画面遷移図
-Figma：[![Image from Gyazo](https://i.gyazo.com/d4bc15a4bfa79e1c07fd989c233c550d.png)](https://gyazo.com/d4bc15a4bfa79e1c07fd989c233c550d)
+Figma：https://www.figma.com/design/uqfL4d5oiPXVMyGqvIRhvt/%E7%84%A1%E9%A1%8C?node-id=0-1&t=EBRCURLV7rLQQQOU-1
 
 ### READMEに記載した機能
 - [x] ユーザー登録機能
@@ -135,4 +135,4 @@ Figma：[![Image from Gyazo](https://i.gyazo.com/d4bc15a4bfa79e1c07fd989c233c550
 - [x] パスワード
 
 ### ER図
-ER図 : [![Image from Gyazo](https://i.gyazo.com/9b4f42599cacb194edb7a967e5861c6b.png)](https://gyazo.com/9b4f42599cacb194edb7a967e5861c6b)
+ER図 : https://gyazo.com/d4bc15a4bfa79e1c07fd989c233c550d
