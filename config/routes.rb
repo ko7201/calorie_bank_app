@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "dashboards/index"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,5 +14,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  #トップページのルーティング
   root "static_pages#top"
+
+  # ログイン後のトップページのルーティング
+  authenticated :user do
+    root "dashboard#index", as: :user_root
+  end
 end
