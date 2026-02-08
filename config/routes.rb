@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   unauthenticated do
     root "static_pages#before_login"
   end
+
+  resource :profile, only: %i[new create edit update show]
 end

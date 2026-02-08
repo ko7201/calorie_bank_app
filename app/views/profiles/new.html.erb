@@ -1,0 +1,25 @@
+<h2>身体情報の登録</h2>
+
+<%= form_with model: @profile, url: profile_path do |f| %>
+  <div>
+    <%= f.label :height, "身長" %>
+    <%= f.number_field :height %>
+  </div>
+
+  <div>
+    <%= f.label :weight, "体重" %>
+    <%= f.number_field :weight %>
+  </div>
+
+  <div>
+    <%= f.label :activity_level, "活動量" %>
+    <%= f.number_field :activity_level %>
+  </div>
+
+  <div>
+    <%= f.label :weight_to_lose, "減らしたい体重" %>
+    <%= f.number_field :weight_to_lose %>
+  </div>
+
+  <%= f.submit "登録" %>
+<% end %>
