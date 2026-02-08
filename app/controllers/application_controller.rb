@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
-  private
   def after_sign_in_path_for(resource)
+    return new_profile_path unless resource.profile.present?
     user_root_path
   end
 end
