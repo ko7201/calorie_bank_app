@@ -14,11 +14,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # トップページのルーティング
-  root "static_pages#top"
 
-  # ログイン後のトップページのルーティング
   authenticated :user do
-    root "dashboard#index", as: :user_root
+    root "dashboards#index", as: :user_root
   end
+
+  unauthenticated do
+    root "static_pages#before_login"
+  end
+
+  resource :profile, only: %i[new create edit update show]
 end
