@@ -1,0 +1,17 @@
+<% header_stats ||= { saved: 0, today_total: 0, target: 0 } %>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full">
+  <% items = [
+    ["日付", l(Date.current)],
+    ["貯金額", "#{header_stats[:saved]} kcal"],
+    ["本日の総カロリー", "#{header_stats[:today_total]} kcal"],
+    ["目標貯金カロリー", "#{header_stats[:target]} kcal"],
+  ] %>
+
+  <% items.each do |label, value| %>
+    <div class="border border-gray-300 rounded-md bg-white px-4 py-3 min-h-[72px]">
+      <div class="text-xs text-gray-500"><%= label %></div>
+      <div class="text-lg font-semibold"><%= value %></div>
+    </div>
+  <% end %>
+</div>
