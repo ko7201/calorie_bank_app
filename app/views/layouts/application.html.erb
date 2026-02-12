@@ -19,14 +19,27 @@
   </head>
 
   <body>
-      <%= render 'shared/header' %>
+<body>
+  <% if user_signed_in? %>
+    <%= render 'shared/header' %>
+
+    <div class="flex">
+      <%= render 'shared/sidebar' %>
+
+      <main class="flex-1 p-6">
+        <%= yield %>
+      </main>
+    </div>
+  <% else %>
     <main>
       <%= yield %>
     </main>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
-      </div>
-    <% end %>
-  </body>
+  <% end %>
+
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
+    </div>
+  <% end %>
+</body>
 </html>
