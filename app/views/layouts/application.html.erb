@@ -21,10 +21,13 @@
   <body>
 <body>
   <% if user_signed_in? %>
-    <%= render 'shared/header' %>
+   <! -- ヘッダーとサイドバーを非表示にするオプション -->
+    <% unless @hide_nav %>
+      <%= render 'shared/header' %>
 
     <div class="flex">
       <%= render 'shared/sidebar' %>
+    <% end %>
 
       <main class="flex-1 p-6">
         <%= yield %>
