@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
     before_action :authenticate_user!
     # プロフィールの重複作成を防ぐ
-    before_action :redirect_if_profile_exists, only: [:new, :create]
-    before_action :hide_nav, only: [:new, :create]
+    before_action :redirect_if_profile_exists, only: [ :new, :create ]
+    before_action :hide_nav, only: [ :new, :create ]
 
     def new
         @profile = Profile.new
