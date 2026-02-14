@@ -1,25 +1,77 @@
-<h2>身体情報の登録</h2>
+<div class="min-h-screen bg-gray-50">
+  <div class="mx-auto max-w-2xl px-4 py-10">
+    <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
+      <div class="mb-6">
+        <h1 class="text-xl font-semibold text-gray-900">プロフィール情報</h1>
+        <p class="mt-1 text-sm text-gray-600">プロフィール情報をもとに、あなたの1日の消費カロリーを計算します。</p>
+        <p class="mt-1 text-sm text-gray-600">あとで編集することができます。</p>
+      </div>
 
-<%= form_with model: @profile, url: profile_path do |f| %>
-  <div>
-    <%= f.label :height, "身長" %>
-    <%= f.number_field :height %>
+      <% if @profile.errors.any? %>
+        <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <p class="font-medium">入力内容をご確認ください</p>
+          <ul class="mt-2 list-disc pl-5">
+            <% @profile.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @profile, url: profile_path, local: true, class: "space-y-6" do |f| %>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="sm:col-span-1">
+            <%= f.label :age, "年齢", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.number_field :age, min: 0, max: 120, class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+          <div class="sm:col-span-1">
+            <%= f.label :gender, "性別", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.select :gender,
+              [["男性", "male"], ["女性", "female"], ["その他", "other"]],
+              { include_blank: "選択してください" },
+              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+          <div>
+            <%= f.label :height, "身長（cm）", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.number_field :height, step: 0.1, placeholder: "例：170.5",
+              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+          <div>
+            <%= f.label :weight, "体重（kg）", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.number_field :weight, step: 0.1, placeholder: "例：65.2",
+              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+          <div class="sm:col-span-2">
+            <%= f.label :activity_level, "活動レベル", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.select :activity_level,
+              [["低い", "low"], ["普通", "middle"], ["高い", "high"]],
+              { include_blank: "選択してください" },
+              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+          <div class="sm:col-span-2 mt-1 text-sm text-gray-600 space-y-2">
+              <p><strong>低い：</strong> デスクワーク中心で運動習慣がほぼない方</p>
+              <p><strong>普通：</strong> デスクワーク中心だが、立ち仕事がある方:通勤や日常生活の活動が適度にある人</p>
+              <p><strong>高い：</strong> 立ち仕事が多い仕事:毎日〜週数回の激しい運動習慣がある人</p>
+          </div>
+
+          <div>
+            <%= f.label :weight_to_lose, "減量目標（kg）", class: "block text-sm font-medium text-gray-700" %>
+            <%= f.number_field :weight_to_lose, step: 0.1, placeholder: "例：3.0",
+              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+          </div>
+
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <%= link_to "あとで入力する", user_root_path, class: "text-sm text-gray-600 hover:text-gray-900" %>
+          <%= f.submit "登録する", class: "inline-flex items-center rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= f.label :weight, "体重" %>
-    <%= f.number_field :weight %>
-  </div>
-
-  <div>
-    <%= f.label :activity_level, "活動量" %>
-    <%= f.number_field :activity_level %>
-  </div>
-
-  <div>
-    <%= f.label :weight_to_lose, "減らしたい体重" %>
-    <%= f.number_field :weight_to_lose %>
-  </div>
-
-  <%= f.submit "登録" %>
-<% end %>
+</div>
