@@ -13,21 +13,21 @@ class ProfilesController < ApplicationController
         if @profile.save
             redirect_to user_root_path, notice: "プロフィールが作成されました。"
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
     private
     # プロフィールの重複作成を防ぐためのリダイレクト
     def redirect_if_profile_exists
-        redirect_to edit_profile_path(current_user.profile) if current_user.profile.present?
+        redirect_to user_root_path if current_user.profile.present?
     end
 
     def profile_params
-        params.require(:profile).permit(:birth_date, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories)
+        params.require(:profile).permit(:age, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories)
     end
 
     def hide_nav
         @hide_nav = true
-    end 
+    end
 end
