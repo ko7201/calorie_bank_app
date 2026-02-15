@@ -17,6 +17,10 @@ class ProfilesController < ApplicationController
         end
     end
 
+    def edit
+        @profile = current_user.profile
+    end
+
     private
     # プロフィールの重複作成を防ぐためのリダイレクト
     def redirect_if_profile_exists
