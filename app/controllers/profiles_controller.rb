@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
     # プロフィールの重複作成を防ぐ
     before_action :redirect_if_profile_exists, only: [ :new, :create ]
     before_action :hide_nav, only: [ :new, :create ]
+    before_action :set_profile, only: [ :edit, :update ]
 
     def new
         @profile = Profile.new
@@ -17,7 +18,22 @@ class ProfilesController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        if @profile.update(profile_params)
+            redirect_to user_root_path, notice: "プロフィールが更新されました。"
+        else
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
     private
+    def set_profile
+        @profile = current_user.profile
+        redirect_to new_profile_path, alert: "プロフィールが見つかりません。新規作成してください。" unless @profile
+    end
     # プロフィールの重複作成を防ぐためのリダイレクト
     def redirect_if_profile_exists
         redirect_to user_root_path if current_user.profile.present?
