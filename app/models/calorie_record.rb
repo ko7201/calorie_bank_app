@@ -6,7 +6,7 @@ class CalorieRecord < ApplicationRecord
     breakfast: 0,
     lunch: 1,
     dinner: 2,
-    snack: 3,
+    snack: 3
     }
 
     validates :calorie, presence: true,
