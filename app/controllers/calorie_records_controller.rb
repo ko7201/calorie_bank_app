@@ -2,11 +2,15 @@ class CalorieRecordsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    calorie_record = current_user.calorie_records.new(calorie_record_params)
-    if calorie_record.save
-      redirect_to user_root_path, notice: "カロリー記録が保存されました。"
+    record = current_user.calorie_records.find_or_initialize_by(
+      eat_date: Date.current,
+      meal_type: calorie_record_params[:meal_type]
+    )
+
+    if record.update(calorie_record_params)
+      redirect_to user_root_path, notice: "保存しました"
     else
-      redirect_to user_root_path, alert: "カロリー記録の保存に失敗しました。"
+      redirect_to user_root_path, alert: "失敗しました"
     end
   end
 
