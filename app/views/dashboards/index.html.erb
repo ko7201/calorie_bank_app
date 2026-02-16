@@ -1,47 +1,4 @@
 <div class="space-y-6">
-
-  <% meals = ["朝食", "昼食", "夕食", "おやつ"] %>
-
-  <% meals.each do |meal| %>
-    <section class="bg-white border border-gray-300 rounded-md p-6">
-      <h2 class="text-lg font-semibold mb-4"><%= meal %></h2>
-
-      <form action="#" method="post" class="grid grid-cols-12 gap-4 items-center">
-        <!-- kcal入力 -->
-        <div class="col-span-12 md:col-span-4">
-          <label class="block text-sm text-gray-600 mb-1">カロリー</label>
-          <div class="flex items-center gap-2">
-            <input
-              type="number"
-              inputmode="numeric"
-              placeholder="例：650"
-              class="w-full border border-gray-300 rounded-md px-3 py-2"
-            />
-            <span class="text-gray-700">kcal</span>
-          </div>
-        </div>
-
-        <!-- 自由記入 -->
-        <div class="col-span-12 md:col-span-6">
-          <label class="block text-sm text-gray-600 mb-1">自由記入欄</label>
-          <input
-            type="text"
-            placeholder="#"
-            class="w-full border border-gray-300 rounded-md px-3 py-2"
-          />
-        </div>
-
-        <!-- 記録ボタン -->
-        <div class="col-span-12 md:col-span-2 flex md:justify-end">
-          <button
-            type="submit"
-            class="mt-6 md:mt-0 w-full md:w-auto border border-gray-400 rounded-md px-6 py-2 hover:bg-gray-100"
-          >
-            記録
-          </button>
-        </div>
-      </form>
-    </section>
-  <% end %>
+<%= render "calorie_records/form", calorie_record: @calorie_record %>
 
 </div>
