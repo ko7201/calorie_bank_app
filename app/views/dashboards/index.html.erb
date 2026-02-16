@@ -1,4 +1,8 @@
 <div class="space-y-6">
-<%= render "calorie_records/form", calorie_record: @calorie_record %>
-
+  <% @meals.each do |label, meal_type| %>
+    <section class="bg-white border border-gray-300 rounded-md p-6">
+      <h2 class="text-lg font-semibold mb-4"><%= label %></h2>
+      <%= render "calorie_records/form", calorie_record: @record[meal_type] %>
+    </section>
+  <% end %>
 </div>
