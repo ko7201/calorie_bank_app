@@ -6,7 +6,7 @@ RSpec.describe "CalorieRecords", type: :request do
   before do
     Rails.logger = Logger.new(STDOUT)
     ActiveRecord::Base.logger = Logger.new(STDOUT)
-    #これが動いてない
+     # これが動いてない
      sign_in user
     end
 
