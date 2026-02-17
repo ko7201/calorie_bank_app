@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "dashboards/index"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -24,4 +23,5 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[new create edit update show]
+  resources :calorie_records, only: %i[index create edit update]
 end

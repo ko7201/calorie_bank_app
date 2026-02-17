@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_14_112627) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_16_081317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calorie_records", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "calorie"
+    t.integer "meal_type"
+    t.date "eat_date"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_calorie_records_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.date "birth_date"
@@ -42,5 +53,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_14_112627) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "calorie_records", "users"
   add_foreign_key "profiles", "users"
 end
