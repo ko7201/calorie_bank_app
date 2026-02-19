@@ -1,10 +1,11 @@
 <% header_stats ||= { saved: 0, today_total: 0, target: 0 } %>
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
   <% items = [
     ["日付", l(Date.current)],
-    ["貯金額", "#{header_stats[:saved]} kcal"],
+    ["1日の消費カロリー", "#{header_stats[:today_total]} kcal"],
     ["本日の総カロリー", "#{header_stats[:today_total]} kcal"],
+    ["貯金額", "#{header_stats[:saved]} kcal"],
     ["目標貯金カロリー", "#{header_stats[:target]} kcal"],
   ] %>
 
