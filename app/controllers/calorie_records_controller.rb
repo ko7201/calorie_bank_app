@@ -1,6 +1,9 @@
 class CalorieRecordsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @calorie_records = current_user.calorie_records.data_list
+  end
   def create
     record = current_user.calorie_records.find_or_initialize_by(
       eat_date: Date.current,
