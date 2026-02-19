@@ -9,6 +9,10 @@ class CalorieRecord < ApplicationRecord
     snack: 3
     }
 
+    scope :data_list, -> {
+        order(eat_date: :asc, meal_type: :asc, created_at: :desc).limit(30)
+      }
+
     validates :calorie, presence: true,
             numericality: { only_integer: true, greater_than: 0 }
 
