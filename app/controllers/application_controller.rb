@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [ :name ])
   end
 
-  #ログイン後の遷移先
+  # ログイン後の遷移先
   def after_sign_in_path_for(resource)
     return new_profile_path unless resource.profile.present?
     user_root_path
@@ -30,9 +30,9 @@ class ApplicationController < ActionController::Base
       @calorie_saved = 0
       return
     end
-    
+
     @calorie_goal = current_user.profile.target_saving_calories
     @bmr = current_user.profile.bmr.round
-    @calorie_saved = [@bmr - @today_total, 0].max
+    @calorie_saved = [ @bmr - @today_total, 0 ].max
   end
 end
