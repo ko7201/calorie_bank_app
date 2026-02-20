@@ -16,6 +16,9 @@ class Profile < ApplicationRecord
     validates :activity_level, presence: true
     validates :gender, presence: true
 
+    validates :weight_to_lose, presence: true,
+            numericality: { greater_than: 0 }
+
     ACTIVITY_NUMBER = {
         "low" => 1.5,
         "middle" => 1.25,
@@ -24,5 +27,9 @@ class Profile < ApplicationRecord
 
     def activity_number
         ACTIVITY_NUMBER.fetch[activity_level]
+    end
+
+    def target_saving_calories
+        weight_to_lose * 7000
     end
 end
