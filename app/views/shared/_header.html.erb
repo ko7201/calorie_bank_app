@@ -3,7 +3,7 @@
 <div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
   <% items = [
     ["日付", l(Date.current)],
-    ["1日の消費カロリー",  "kcal"],
+    ["1日の消費カロリー",  "#{@bmr} kcal"],
     ["本日の総カロリー", "#{@today_total} kcal"],
     ["貯金額", "kcal"],
     ["目標貯金カロリー", "#{@calorie_goal} kcal"],

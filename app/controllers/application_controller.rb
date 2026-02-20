@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   def set_header_stats
     @today_total = current_user.calorie_records.today.sum(:calorie)
     @calorie_goal = current_user.profile.target_saving_calories
-    
+    @bmr = current_user.profile.bmr.round
   end
 end
