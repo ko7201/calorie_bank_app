@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-        params.require(:profile).permit(:age, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories)
+        params.require(:profile).permit(:age, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories, :rice_gram)
     end
 
     def hide_nav

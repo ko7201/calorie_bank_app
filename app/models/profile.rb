@@ -19,6 +19,9 @@ class Profile < ApplicationRecord
     validates :weight_to_lose, presence: true,
             numericality: { greater_than: 0 }
 
+    validates :rice_gram, presence: true,
+            numericality: { only_integer: true, greater_than: 0 }
+
     ACTIVITY_NUMBER = {
         "low" => 1.5,
         "middle" => 1.75,
