@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
     belongs_to :user
     before_validation :set_rice_kcal_per_bowl
-    #ご飯のカロリーは、1グラムあたり約1.68kcalとする
+    # ご飯のカロリーは、1グラムあたり約1.68kcalとする
     RICE_KCAL_PER_GRAM = 1.68
 
     enum gender: { male: 0, female: 1, other: 2 }

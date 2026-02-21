@@ -32,8 +32,8 @@ class CalorieRecord < ApplicationRecord
   def set_eat_date
     self.eat_date ||= Date.current
   end
-#記録作成時に、その時点のご飯１杯あたりのカロリーを保存する
-#（プロフィール変更によって過去の記録が変わらないようにするため
+  # 記録作成時に、その時点のご飯１杯あたりのカロリーを保存する
+  # （プロフィール変更によって過去の記録が変わらないようにするため
   def set_rice_kcal_per_bowl
     self.rice_bowls = rice_bowls.to_i
 
