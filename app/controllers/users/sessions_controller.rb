@@ -3,16 +3,18 @@ class Users::SessionsController < Devise::SessionsController
     user = User.find_or_create_by!(email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト"
-      user.build_profile(
-        age: 30,
-        height: 170,
-        weight: 65,
-        activity_level: 2,
-        weight_to_lose: 5,
-        gender: 1,
-      )
     end
+    reset_guest_user_data!(user)
     sign_in user
-    redirect_to user_root_path, notice: "ゲストユーザーとしてログインしました。"
+    redirect_to after_sign_in_path_for(user), notice: "ゲストユーザーとしてログインしました。"
+  end
+
+  private
+
+  def reset_guest_user_data!(user)
+    user.calorie_records.destroy_all
+    if user.profile
+      user.profile.destroy
+    end
   end
 end
