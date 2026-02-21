@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def set_header_stats
     @today_total = current_user.calorie_records.today.sum(:calorie)
-
+    #プロフィール情報がない場合は0を表示する
     profile = current_user.profile
     unless profile
       @calorie_goal = 0
