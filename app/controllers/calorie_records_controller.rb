@@ -19,6 +19,6 @@ class CalorieRecordsController < ApplicationController
 
   private
   def calorie_record_params
-    params.require(:calorie_record).permit(:calorie, :meal_type, :memo)
+    params.require(:calorie_record).permit(:calorie, :meal_type, :memo, :rice_bowls)
   end
 end
