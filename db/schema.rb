@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_16_081317) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_21_105033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_16_081317) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rice_bowls", default: 0, null: false
+    t.integer "rice_kcal_per_bowl", default: 0, null: false
+    t.integer "base_calorie"
     t.index ["user_id"], name: "index_calorie_records_on_user_id"
   end
 
@@ -37,6 +40,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_16_081317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "age"
+    t.integer "rice_gram"
+    t.integer "rice_kcal_per_bowl"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

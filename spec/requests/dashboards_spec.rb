@@ -11,7 +11,8 @@ RSpec.describe "Dashboards", type: :request do
       activity_level: :low,
       weight_to_lose: 3,
       gender: :male,
-      target_saving_calories: 300
+      target_saving_calories: 300,
+      rice_gram: 150
     )
 
     sign_in user

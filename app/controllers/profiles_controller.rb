@@ -23,6 +23,12 @@ class ProfilesController < ApplicationController
 
     def update
         if @profile.update(profile_params)
+            # もしお茶碗1杯のご飯の量が変更された場合、当日のカロリー記録を再計算する
+            if @profile.saved_change_to_rice_gram?
+                current_user.calorie_records.today.find_each do |record|
+                    record.save!
+                end
+            end
             redirect_to user_root_path, notice: "プロフィールが更新されました。"
         else
             render :edit, status: :unprocessable_entity
@@ -40,7 +46,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-        params.require(:profile).permit(:age, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories)
+        params.require(:profile).permit(:age, :height, :weight, :activity_level, :weight_to_lose, :gender, :target_saving_calories, :rice_gram)
     end
 
     def hide_nav

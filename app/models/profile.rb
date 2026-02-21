@@ -1,5 +1,8 @@
 class Profile < ApplicationRecord
     belongs_to :user
+    before_validation :set_rice_kcal_per_bowl
+    # ご飯のカロリーは、1グラムあたり約1.68kcalとする
+    RICE_KCAL_PER_GRAM = 1.68
 
     enum gender: { male: 0, female: 1, other: 2 }
     enum activity_level: { low: 0, middle: 1, high: 2 }
@@ -18,6 +21,9 @@ class Profile < ApplicationRecord
 
     validates :weight_to_lose, presence: true,
             numericality: { greater_than: 0 }
+
+    validates :rice_gram, presence: true,
+            numericality: { only_integer: true, greater_than: 0 }
 
     ACTIVITY_NUMBER = {
         "low" => 1.5,
@@ -45,5 +51,13 @@ class Profile < ApplicationRecord
 
     def bmr
         bmr_calculation * activity_number
+    end
+
+    private
+    # プロフィール保存時に、1杯あたりのカロリーを計算して固定する
+    # （プロフィール変更によって過去の記録が変わらないようにするため
+    def set_rice_kcal_per_bowl
+        return if rice_gram.blank?
+        self.rice_kcal_per_bowl = (RICE_KCAL_PER_GRAM * rice_gram).round
     end
 end
