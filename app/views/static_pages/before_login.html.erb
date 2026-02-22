@@ -1,33 +1,35 @@
-<div class="min-h-screen bg-cover bg-center"
-     style="background-image: url('<%= asset_path("food.png") %>');">
-<section class="py-24">
+<div class="min-h-screen bg-cover bg-center flex items-center"
+     style="background-image: url('<%= asset_path("food1.png") %>');">
+<section class="py-0 w-full pt-10">
   <div class="flex justify-center">
     <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="text-5xl sm:text-6xl font-bold text-gray-900">
+      <h1 class="text-7xl sm:text-8xl font-bold text-gray-900 drop-shadow-lg">
         <span>C</span>
-        <span class="-mx-3 text-4xl sm:text-5xl">🍙</span>
+        <span class="-mx-4 text-5xl sm:text-6xl">🍙</span>
         <span>lorie Ba</span>
-        <span class="-mx-3 text-4xl sm:text-5xl">🍞</span>
+        <span class="-mx-4 text-5xl sm:text-6xl">🍞</span>
         <span>k</span>
       </h1>
 
       <p class="mt-6 text-lg text-gray-600">
-      食べた量ではなく、節制できた分を記録するシンプルなアプリ
+        我慢の記録ではなく、工夫の記録。
+        小さな節制を、今日の“貯金”に。
       </p>
 
-      <div class="flex gap-6 justify-center mt-6">
-        <%= link_to "ログイン",new_user_session_path,
-          class: "inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500" %>
+    <div class="flex gap-6 justify-center mt-6">
+      <%= link_to "ログイン", new_user_session_path,
+        class: "inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500" %>
+      <%= link_to "新規登録", new_user_registration_path,
+        class: "inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500" %>
+    </div>
 
-
-        <%= link_to "新規登録",
-          new_user_registration_path,
-          class: "inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-500" %>
-      </div>
-
-     <%= link_to "ゲストログイン",
-      guest_sign_in_path,data: { "turbo-method": :post },
-      class: "inline-block px-6 py-3 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-700" %>
+    <div class="flex flex-col items-center mt-4">
+      <%= link_to "ゲストとして試してみる →",
+        guest_sign_in_path, data: { "turbo-method": :post },
+        class: "text-gray-600 text-base underline hover:text-gray-800" %>
+      <p class="text-sm text-gray-900 mt-1 text-center">
+        ※ゲストはログアウトするとデータがリセットされます
+      </p>
     </div>
   </div>
 </section>
