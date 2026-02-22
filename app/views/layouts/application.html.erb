@@ -19,30 +19,35 @@
   </head>
 
   <body>
-<body>
-  <% if user_signed_in? %>
-   <! -- ヘッダーとサイドバーを非表示にするオプション -->
-    <% unless @hide_nav %>
-      <%= render 'shared/header' %>
+    <% if user_signed_in? %>
+      <div class="min-h-screen bg-cover bg-center"
+           style="background-image: url('<%= asset_path("food3.png") %>');">
 
-    <div class="flex">
-      <%= render 'shared/sidebar' %>
-    <% end %>
+        <% unless @hide_nav %>
+          <%= render "shared/header" %>
+        <% end %>
 
-      <main class="flex-1 p-6">
+        <div class="flex min-h-screen">
+          <% unless @hide_nav %>
+            <%= render "shared/sidebar" %>
+          <% end %>
+
+          <main class="flex-1 p-6">
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+
+    <% else %>
+      <main class="min-h-screen p-6 bg-gradient-to-br from-amber-50 to-orange-100">
         <%= yield %>
       </main>
-    </div>
-  <% else %>
-    <main>
-      <%= yield %>
-    </main>
-  <% end %>
+    <% end %>
 
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>">
-      <%= message %>
-    </div>
-  <% end %>
-</body>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </body>
 </html>
