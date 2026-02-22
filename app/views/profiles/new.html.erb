@@ -1,6 +1,7 @@
-<div class="min-h-screen bg-gray-50">
-  <div class="mx-auto max-w-2xl px-4 py-10">
-    <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
+<div class="min-h-screen bg-contain bg-center flex items-center justify-center"
+     style="background-image: url('<%= asset_path("food3.png") %>');">
+  <div class="mx-auto max-w-2xl w-full px-4 py-10">
+    <div class="rounded-2xl bg-white/60 backdrop-blur-md p-6 shadow-sm ring-1 ring-white/40">
       <div class="mb-6">
         <h1 class="text-xl font-semibold text-gray-900">プロフィール情報</h1>
         <p class="mt-1 text-sm text-gray-600">プロフィール情報をもとに、あなたの1日の消費カロリーを計算します。</p>
@@ -22,7 +23,7 @@
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div class="sm:col-span-1">
             <%= f.label :age, "年齢", class: "block text-sm font-medium text-gray-700" %>
-            <%= f.number_field :age, min: 0, max: 120, class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+            <%= f.number_field :age, min: 0, max: 120, class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
           </div>
 
           <div class="sm:col-span-1">
@@ -30,7 +31,7 @@
             <%= f.select :gender,
               [["男性", "male"], ["女性", "female"], ["その他", "other"]],
               { include_blank: "選択してください" },
-              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
           </div>
 
           <div>
@@ -50,7 +51,7 @@
             <%= f.select :activity_level,
               [["低い", "low"], ["普通", "middle"], ["高い", "high"]],
               { include_blank: "選択してください" },
-              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
           </div>
 
           <div class="sm:col-span-2 mt-1 text-sm text-gray-600 space-y-2">
@@ -62,13 +63,13 @@
           <div>
             <%= f.label :weight_to_lose, "減量目標（kg）", class: "block text-sm font-medium text-gray-700" %>
             <%= f.number_field :weight_to_lose, step: 0.1, placeholder: "例：3.0",
-              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
           </div>
 
           <div>
             <%= f.label :rice_gram, "お茶碗1杯のご飯の量(g)", class: "block text-sm font-medium text-gray-700" %>
             <%= f.number_field :rice_gram, placeholder: "例：150",
-              class: "mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
+              class: "mt-1 block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-gray-900 focus:ring-gray-900" %>
           </div>
         </div>
 
