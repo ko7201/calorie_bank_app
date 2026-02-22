@@ -1,1 +1,23 @@
-ja: {}
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      profile: "プロフィール"
+      calorie_record: "カロリー記録"
+    attributes:
+      user:
+        email: "メールアドレス"
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+      profile:
+        age: "年齢"
+        gender: "性別"
+        height: "身長"
+        weight: "体重"
+        activity_level: "活動レベル"
+        weight_to_lose: "減量目標"
+        rice_gram: "ご飯の量"
+      calorie_record:
+        meal_type: "食事タイプ"
+        base_calorie: "基本カロリー"
