@@ -34,5 +34,6 @@ class ApplicationController < ActionController::Base
     @calorie_goal = current_user.profile.target_saving_calories
     @bmr = current_user.profile.bmr.round
     @calorie_saved = [ @bmr - @today_total, 0 ].max
+    @rice_kcal_per_bowl = current_user.profile.rice_kcal_per_bowl
   end
 end
