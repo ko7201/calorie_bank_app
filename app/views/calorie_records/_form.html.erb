@@ -24,7 +24,7 @@
           ご飯(杯) <span class="text-gray-500 font-normal"><%= @rice_kcal_per_bowl %> kcal/杯</span>
         <% end %>
       <% end %>
-      <%= f.number_field :rice_bowls, min: 1, placeholder: "1",
+      <%= f.number_field :rice_bowls, min: 0, placeholder: "1",
             class: "w-full sm:w-24 rounded-xl bg-white/50 border border-white/30 px-4 py-3 text-sm shadow-sm
                     focus:outline-none focus:ring-2 focus:ring-indigo-400" %>
     </div>

@@ -19,7 +19,7 @@ class CalorieRecord < ApplicationRecord
         where(eat_date: Date.current)
       }
     validates :calorie, presence: true,
-            numericality: { only_integer: true, greater_than: 0 }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
     validates :meal_type, presence: true
     validates :rice_bowls,
