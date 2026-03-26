@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in", as: :guest_sign_in
   end
