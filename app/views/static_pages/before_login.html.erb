@@ -1,17 +1,16 @@
-<div class="min-h-screen bg-cover bg-center flex items-center"
-     style="background-image: url('<%= asset_path("mokume2.jpg") %>');">
-<section class="py-0 w-full pt-10">
+<div class="min-h-screen bg-cover bg-center relative">
+
+  <!-- 背景画像（絶対配置で背景にする） -->
+  <div class="absolute inset-0"
+       style="background-image: url('<%= asset_path("mokume.jpg") %>');
+               filter: brightness(1.0) saturate(3.2);"></div>
+<section class="relative py-0 w-full pt-10">
   <div class="flex justify-center">
     <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="text-7xl sm:text-8xl font-bold text-gray-900 drop-shadow-lg">
-        <span>C</span>
-        <span class="-mx-4 text-5xl sm:text-6xl">🍙</span>
-        <span>lorie Ba</span>
-        <span class="-mx-4 text-5xl sm:text-6xl">🍞</span>
-        <span>k</span>
+      <h1 class="hoge1 text-7xl sm:text-8xl font-bold text-white drop-shadow-lg">
+          Calorie Bank
       </h1>
-
-      <p class="mt-6 text-lg text-gray-600">
+      <p class="moji mt-6 text-lg text-white">
         我慢の記録ではなく、工夫の記録。
         小さな節制を、今日の“貯金”に。
       </p>
