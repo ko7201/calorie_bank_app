@@ -23,6 +23,7 @@
       <div class="min-h-screen bg-cover bg-center"
            style="background-image: url('<%= asset_path("food3.png") %>');">
 
+
         <% unless @hide_nav %>
           <%= render "shared/header" %>
         <% end %>
@@ -39,7 +40,8 @@
       </div>
 
     <% else %>
-      <main class="min-h-screen p-6 bg-gradient-to-br from-amber-50 to-orange-100">
+    <!-- ログイン前のページは背景画像を全画面に表示 -->
+      <main>
         <%= yield %>
       </main>
     <% end %>
