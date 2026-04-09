@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
 
   authenticated :user do
-    root "dashboards#index", as: :user_root
+    root "home#index", as: :user_root
   end
 
   unauthenticated do
@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[new create edit update show]
   resources :calorie_records, only: %i[index create edit update]
+  resources :home, only: %i[index]
 end
