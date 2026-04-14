@@ -18,6 +18,10 @@ class CalorieRecord < ApplicationRecord
     scope :today, -> {
         where(eat_date: Date.current)
       }
+
+    scope :today_total, -> {
+        where(eat_date: Date.current).order(meal_type: :asc)
+      }
     validates :calorie, presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
