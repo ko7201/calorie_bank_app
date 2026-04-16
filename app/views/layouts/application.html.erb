@@ -22,33 +22,19 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <div class="min-h-screen bg-cover bg-center"
-           style="background-image: url('<%= asset_path("food3.png") %>');">
-
-
-        <% unless @hide_nav %>
-          <%= render "shared/header" %>
-        <% end %>
-
-        <div class="flex min-h-screen">
-          <% unless @hide_nav %>
-            <%= render "shared/sidebar" %>
-          <% end %>
-
-          <main class="flex-1 p-6">
-            <%= yield %>
-          </main>
-        </div>
-      </div>
-
-    <% else %>
-    <!-- ログイン前のページは背景画像を全画面に表示 -->
-      <main>
+    <%= render "shared/header" %>
+  <% if user_signed_in? %>
+    <div class="min-h-screen bg-cover bg-center"
+         style="background-image: url('<%= asset_path("food3.png") %>');">
+      <main class="flex-1 p-6">
         <%= yield %>
       </main>
-    <% end %>
-
+    </div>
+  <% else %>
+    <main>
+      <%= yield %>
+    </main>
+  <% end %>
     <div class="fixed top-4 right-4 z-50">
       <% flash.each do |message_type, message| %>
       <div class="px-4 py-3 rounded-lg shadow-lg text-sm font-medium

@@ -1,18 +1,8 @@
-
-
-<div class="grid grid-cols-2 md:grid-cols-5 gap-2 w-full">
-  <% items = [
-    ["日付", l(Date.current)],
-    ["1日の消費カロリー",  "#{@bmr} kcal"],
-    ["本日の総カロリー", "#{@today_total} kcal"],
-    ["貯金額", "#{@calorie_saved} kcal"],
-    ["目標貯金カロリー", "#{@calorie_goal} kcal"],
-  ] %>
-
-  <% items.each do |label, value| %>
-    <div class="border border-gray-300 rounded-md bg-white px-4 py-3 min-h-[72px]">
-      <div class="text-xs text-gray-500"><%= label %></div>
-      <div class="text-lg font-semibold"><%= value %></div>
-    </div>
+<header class ="flex items-center justify-between p-4 bg-white shadow">
+  <h1 class="hoge1 text-2xl font-bold text-gray-800">Calorie_Bank</h1>
+  <% if user_signed_in? %>
+    <%= render "shared/nav_authenticated" %>
+  <% else %>
+    <%= render "shared/nav_unauthenticated" %>
   <% end %>
-</div>
+</header>

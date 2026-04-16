@@ -1,0 +1,17 @@
+<div class="grid grid-cols-2 gap-3">
+  <% @meals.each do |label, meal_type| %>
+    <section class="rounded-2xl border border-white/30 bg-white/35 backdrop-blur-md shadow-lg p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold mb-4 text-gray-900"><%= label %></h2>
+      <a href = "#" class="text-sm text-blue-500 hover:underline mb-2 inline-block">カロリー入力</a>
+    </div>
+    <% data = @calorie_records.find { |r| r.meal_type == meal_type } %>
+    <% if data.present? %>
+        <p><%= data.calorie %> kcal</p>
+        <p><%= data.memo %></p>
+    <% else %>
+        <p>記録がありません</p>
+    <% end %>
+    </section>
+  <% end %>
+</div>
