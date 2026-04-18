@@ -4,6 +4,11 @@ class CalorieRecordsController < ApplicationController
   def index
     @calorie_records = current_user.calorie_records.data_list
   end
+
+  def new
+    @meal_type = params[:meal_type]
+  end
+  
   def create
     record = current_user.calorie_records.find_or_initialize_by(
       eat_date: Date.current,
