@@ -5,7 +5,7 @@
       <h2 class="text-lg font-semibold mb-4 text-gray-900"><%= label %></h2>
       <%= link_to "記録する", new_calorie_record_path(meal_type: meal_type), class: "text-sm text-indigo-600 hover:text-indigo-800" %>
     </div>
-    <% data = @calorie_records.find { |r| r.meal_type == meal_type } %>
+    <% data = @calorie_records.find { |r| r.meal_type == meal_type.to_s } %>
     <% if data.present? %>
         <p><%= data.calorie %> kcal</p>
         <p><%= data.memo %></p>

@@ -2,6 +2,7 @@
   <%= @meal_type %> のカロリー入力
 </h1>
 <%= form_with model: @calorie_record, local: true do |f| %>
+    <%= f.hidden_field :meal_type, value: @meal_type %>
   <div class="flex flex-col items-center space-y-4">
 
     <div class="w-full max-w-sm">

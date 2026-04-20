@@ -7,8 +7,9 @@ class CalorieRecordsController < ApplicationController
 
   def new
     @meal_type = params[:meal_type]
+    @calorie_record = CalorieRecord.new
   end
-  
+
   def create
     record = current_user.calorie_records.find_or_initialize_by(
       eat_date: Date.current,
