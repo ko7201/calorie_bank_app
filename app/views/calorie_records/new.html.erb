@@ -1,0 +1,30 @@
+<h1 class="text-xl text-center font-bold mb-4">
+  <%= @meal_type %> のカロリー入力
+</h1>
+<%= form_with model: @calorie_record, local: true do |f| %>
+    <%= f.hidden_field :meal_type, value: @meal_type %>
+  <div class="flex flex-col items-center space-y-4">
+
+    <div class="w-full max-w-sm">
+      <%= f.label :base_calorie, "カロリー", class: "block mb-1 text-sm font-medium" %>
+      <%= f.text_field :base_calorie,
+      inputmode: "numeric",
+      class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="w-full max-w-sm">
+      <%= f.label :rice_bowls, "ご飯(杯)", class: "block mb-1 text-sm font-medium" %>
+      <%= f.number_field :rice_bowls, min: 0, class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="w-full max-w-sm">
+      <%= f.label :memo, "メモ", class: "block mb-1 text-sm font-medium" %>
+      <%= f.text_area :memo, class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="w-full max-w-sm">
+      <%= f.submit "保存", class: "w-full bg-indigo-600 text-white py-2 rounded" %>
+    </div>
+
+  </div>
+<% end %>

@@ -32,6 +32,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[new create edit update show]
-  resources :calorie_records, only: %i[index create edit update]
+  resources :calorie_records, only: %i[index new create edit update]
   resources :homes, only: %i[index]
 end
