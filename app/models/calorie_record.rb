@@ -1,4 +1,6 @@
 class CalorieRecord < ApplicationRecord
+  include ImageUploader::Attachment(:image)
+
   belongs_to :user
   before_validation :set_eat_date, on: :create
   before_validation :set_rice_kcal_per_bowl, on: %i[create update]
