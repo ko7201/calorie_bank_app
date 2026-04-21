@@ -9,6 +9,9 @@
     <% if data.present? %>
         <p><%= data.calorie %> kcal</p>
         <p><%= data.memo %></p>
+        <% if data.image.present? %>
+          <p><%= image_tag data.image_url, class: "mt-2 rounded" %></p>
+        <% end %>
     <% else %>
         <p>記録がありません</p>
     <% end %>
