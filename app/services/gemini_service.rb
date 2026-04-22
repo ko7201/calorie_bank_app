@@ -1,13 +1,16 @@
 class GeminiService
 
-    def self.call
+    def self.call(calorie_record)
         require "net/http"
         require "uri"
         require "json"
+        require "base64"
 
         api_key = ENV["GEMINI_API_KEY"]
 
         uri = URI("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=#{api_key}")
+
+        image_data = Base64.strict_encode64(calorie_record.image.read)
 
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
@@ -19,13 +22,18 @@ class GeminiService
             contents: [
             {
                 parts: [
-                    { text: "こんにちは、元気ですか？" }
+                    { text: "この食事のカロリーを数字だけください" },
+                    { inline_data: {
+                        mime_type: "image/jpeg",
+                        data: image_data
+                    }}
                 ]
             }
             ]
         }.to_json
 
         response = http.request(request)
+        puts response.body 
         json = JSON.parse(response.body)
 
         json.dig("candidates", 0, "content", "parts", 0, "text")
