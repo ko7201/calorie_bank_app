@@ -17,7 +17,17 @@ class CalorieRecordsController < ApplicationController
     )
 
     if record.update(calorie_record_params)
-      redirect_to user_root_path, notice: "保存しました"
+      if record.image.present?
+        new_calorie = GeminiService.call(record)
+        if new_calorie
+          record.update(base_calorie: new_calorie)
+          redirect_to user_root_path, notice: "カロリーを推定しました（#{new_calorie} kcal）"
+        else
+          redirect_to user_root_path, alert: "カロリーの推定に失敗しました。再度時間を空けてお試しください。"
+        end
+      else
+        redirect_to user_root_path, notice: "保存しました"
+      end
     else
       redirect_to user_root_path, alert: "失敗しました"
     end
