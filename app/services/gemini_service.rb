@@ -1,5 +1,4 @@
 class GeminiService
-
     def self.call(calorie_record)
         require "net/http"
         require "uri"
@@ -26,7 +25,7 @@ class GeminiService
                     { inline_data: {
                         mime_type: "image/jpeg",
                         data: image_data
-                    }}
+                    } }
                 ]
             }
             ]
