@@ -32,10 +32,20 @@ class GeminiService
             ]
         }.to_json
 
-        response = http.request(request)
-        puts response.body 
-        json = JSON.parse(response.body)
+        begin
+            response = http.request(request)
+            puts response.body
 
-        json.dig("candidates", 0, "content", "parts", 0, "text")
+            unless response.code == "200"
+                Rails.logger.error("Gemini API error: #{response.body}")
+                return nil
+            end
+
+                json = JSON.parse(response.body)
+                json.dig("candidates", 0, "content", "parts", 0, "text")
+        rescue => e
+            Rails.logger.error("Gemini API request failed: #{e.message}")
+            nil
+        end
     end
 end
