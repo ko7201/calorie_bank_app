@@ -64,6 +64,7 @@ end
 
 gem "devise"
 gem "omniauth-google-oauth2"
+gem "omniauth-line-v2"
 gem "omniauth-rails_csrf_protection"
 
 gem "devise-i18n"
