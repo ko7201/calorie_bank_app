@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  get "liff/calorie_records/new", to: "calorie_records#liff_new"
 
   authenticated :user do
     root "homes#index", as: :user_root
