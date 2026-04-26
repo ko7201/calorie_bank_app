@@ -44,8 +44,13 @@
       <% end %>
     </div>
 
+    <div class="mt-6 text-center">
+      <%= button_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false }, class: "w-full rounded-lg bg-red-600 px-6 py-3 text-white font-medium hover:bg-red-500 active:bg-red-700" %>
+    </div>
+    
     <div class="mt-6 border-t pt-4 text-center text-sm">
       <%= render "devise/shared/links" %>
     </div>
+
   </div>
 </div>
