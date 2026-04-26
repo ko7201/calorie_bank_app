@@ -1,4 +1,4 @@
 <nav>
-    <a href="#" class="text-gray-600 hover:text-gray-800 text-right">ログイン</a>
-    <a href="#" class="ml-4 text-gray-600 hover:text-gray-800 text-right">新規登録</a>
+    <%= link_to "ログイン", new_user_session_path, class: "text-gray-600 hover:text-gray-800 text-right" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "ml-4 text-gray-600 hover:text-gray-800 text-right" %>
 </nav>

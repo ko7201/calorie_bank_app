@@ -14,14 +14,6 @@
         小さな節制を、今日の“貯金”に。
       </p>
     </div>
-    <div class="w-100 mx-auto mt-8">
-        <%= link_to new_user_session_path do %>
-          <img src="<%= asset_path("hashi.png") %>" alt="ログイン">
-        <% end %>
-        <%= link_to new_user_registration_path do %>
-          <img src="<%= asset_path("hashi3.png") %>" alt="ログイン">
-        <% end %>
-    </div>
 
     <%= button_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false } %>
     <div class="flex flex-col items-center mt-4">
