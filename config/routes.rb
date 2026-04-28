@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "liff/calorie_records/new", to: "calorie_records#liff_new"
+  get "terms", to: "pages#terms"
 
   authenticated :user do
     root "homes#index", as: :user_root
