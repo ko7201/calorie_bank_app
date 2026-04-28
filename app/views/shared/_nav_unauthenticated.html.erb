@@ -1,4 +1,22 @@
-<nav>
-    <%= link_to "ログイン", new_user_session_path, class: "text-gray-600 hover:text-gray-800 text-right" %>
-    <%= link_to "新規登録", new_user_registration_path, class: "ml-4 text-gray-600 hover:text-gray-800 text-right" %>
+<nav class="relative">
+  <!-- チェックボックス本体は隠す -->
+  <input type="checkbox" id="menu-toggle" class="peer hidden">
+
+  <!-- ハンバーガーボタン -->
+  <label for="menu-toggle"
+         class="md:hidden cursor-pointer text-gray-700 px-3 py-2 border rounded">
+    メニュー
+  </label>
+
+  <!-- PC用ナビ -->
+  <div class="hidden md:flex items-center">
+    <%= link_to "ログイン", new_user_session_path, class: "text-gray-600 hover:text-gray-800" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "ml-4 text-gray-600 hover:text-gray-800" %>
+  </div>
+
+  <!-- モバイル用ドロップダウン -->
+  <div class="hidden peer-checked:block md:hidden absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-50">
+    <%= link_to "ログイン", new_user_session_path, class: "block px-4 py-3 text-gray-700 hover:bg-gray-100" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "block px-4 py-3 text-gray-700 hover:bg-gray-100" %>
+  </div>
 </nav>
