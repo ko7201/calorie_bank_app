@@ -1,13 +1,45 @@
-<section>
-  <h2>仕組み</h2>
+<div class="rounded-[2rem] border border-orange-200 px-8 py-10 shadow-sm md:px-14 md:py-12">
+  <div class="mb-8 flex items-baseline gap-3">
+    <p class="font-serif text-3xl italic font-bold text-orange-200">
+      Mechanism
+    </p>
+    <h2 class="text-xl font-bold tracking-wide text-stone-700">
+      仕組み
+    </h2>
+  </div>
 
-  <p>CaloryBankの食事記録は、栄養素などの細かい情報は扱わず、カロリーだけに特化したシンプルな仕組みです。</p>
+  <div class="space-y-8 text-stone-700 leading-9">
+    <!-- 冒頭 -->
+    <p>CaloryBankの食事記録は、栄養素などの細かい情報は扱わず、カロリーだけに特化したシンプルな仕組みです。</p>
 
-  <p>プロフィール設定から算出された1日の推定消費カロリーから、その日の摂取カロリーを差し引いた差分が、あなたの"貯金"として記録されます。</p>
+    <!-- 貯金の計算 -->
+    <div>
+      <h3 class="text-lg font-bold mb-4 text-stone-800">貯金の計算</h3>
+      <p class="mb-4">プロフィール設定から算出された1日の推定消費カロリーから、その日の摂取カロリーを差し引いた差分が、あなたの"貯金"として記録されます。</p>
 
-  <p>例えば、推定消費カロリーが2,000kcal、その日の摂取カロリーが1,800kcalだった場合、200kcalが貯金として積み立てられます。逆に、摂取カロリーが消費を超えた日は、その分だけ貯金が減ります。</p>
+      <%= image_tag "calorie1.svg", alt: "貯金の計算", class: "w-full mb-6" %>
 
-  <p>目標体重を登録すると、達成までに必要なカロリー（消費 - 摂取の累計）が自動で算出され、貯金の目標として表示されます。</p>
+      <p class="mb-4">例えば、推定消費カロリーが2,000kcal、その日の摂取カロリーが1,800kcalだった場合、200kcalが貯金として積み立てられます。逆に、摂取カロリーが消費を超えた日は、その分だけ貯金が減ります。</p>
 
-  <p>貯金がマイナスになってしまった時は、ローン機能で返済日数を設定できます。翌日以降は、設定した日数で割った分のカロリーが最初から加算された状態でスタート。実質的に少なめに食べることで、超過分を返していく仕組みです。</p>
-</section>
+      <%= image_tag "calorie2.svg", alt: "マイナスの場合の例", class: "w-full" %>
+    </div>
+
+    <!-- 目標体重の設定 -->
+    <div>
+      <h3 class="text-lg font-bold mb-4 text-stone-800">目標体重の設定</h3>
+      <p class="mb-4">目標体重を登録すると、達成までに必要なカロリー（消費 - 摂取の累計）が自動で算出され、貯金の目標として表示されます。</p>
+
+      <%= image_tag "calorie3.svg", alt: "目標体重までの進捗", class: "w-full" %>
+    </div>
+
+    <!-- カロリーローン -->
+    <div>
+      <h3 class="text-lg font-bold mb-4 text-stone-800">カロリーローン</h3>
+      <p class="mb-4">貯金がマイナスになってしまった時は、ローン機能で返済日数を設定できます。翌日以降は、設定した日数で割った分のカロリーが最初から加算された状態でスタート。実質的に少なめに食べることで、超過分を返していく仕組みです。</p>
+
+      <%= image_tag "calorie4.svg", alt: "カロリーローンの返済仕組み", class: "w-full mb-4" %>
+
+      <p class="text-sm text-stone-600">この仕組みにより、1日の枠を超えても焦らず、自分のペースで調整できます。</p>
+    </div>
+  </div>
+</div>
