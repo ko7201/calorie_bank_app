@@ -19,17 +19,6 @@
         我慢の記録ではなく、工夫の記録。
         小さな節制を、今日の"貯金"に。
       </p>
-
-      <div class="mt-8">
-        <%= link_to "ゲストとして試してみる →",
-          guest_sign_in_path,
-          data: { "turbo-method": :post },
-          class: "text-gray-600 text-base underline hover:text-gray-800" %>
-
-        <p class="text-sm text-gray-900 mt-1 text-center">
-          ※ゲストはログアウトするとデータがリセットされます
-        </p>
-      </div>
     </div>
 
     <!-- 仕組みセクション -->
@@ -128,8 +117,19 @@
               style: "transform: scale(1.2);" %>
           </div>
 
+
         </div>
       </div>
     </dialog>
+    <div class="mt-8 text-center">
+        <%= link_to "ゲストとしてログイン",
+          guest_sign_in_path,
+          data: { "turbo-method": :post },
+          class: "rounded-full bg-orange-200 px-6 py-3 font-bold text-stone-900 hover:bg-orange-300 transition" %>
+
+        <p class="text-sm text-white mt-5 text-center">
+          ※ゲストはログアウトするとデータがリセットされます
+        </p>
+    </div>
   </section>
 </div>
