@@ -16,8 +16,8 @@
       </h1>
 
       <p class="moji mt-6 text-lg text-white">
-        我慢の記録ではなく、工夫の記録。<br>
-        小さな節制を、今日の“貯金”に。
+        我慢の記録ではなく、工夫の記録。
+        小さな節制を、今日の"貯金"に。
       </p>
 
       <div class="mt-8">
@@ -32,60 +32,54 @@
       </div>
     </div>
 
-    <!-- ここに仕組みカードを入れる -->
-    <div class="max-w-4xl mx-auto mt-16 px-4">
-      <div class="rounded-[2rem] border border-orange-200  px-8 py-10 shadow-sm md:px-14 md:py-12">
-        <div class="mb-8 flex items-baseline gap-3">
-          <p class="font-serif text-3xl italic font-bold text-orange-200">
-            Mechanism
-          </p>
-          <h2 class="text-xl font-bold tracking-wide text-stone-700">
-            仕組み
-          </h2>
-        </div>
+    <!-- 仕組みセクション -->
+    <div class="max-w-2xl mx-auto mt-16 px-4">
+      <!-- 仕組みセクションの見出しと説明 -->
+      <div class="mb-8 items-baseline gap-3">
+        <p class="font-serif text-3xl italic font-bold text-orange-200 text-center">
+          Mechanism
+        </p>
+      </div>
 
-        <div class="space-y-8 text-white leading-9">
-          <p>
-            CaloryBankの食事記録は、栄養素などの細かい情報は扱わず、カロリーだけに特化したシンプルな仕組みです。
-          </p>
+      <p class="mb-12 text-white leading-7 text-2m">
+        CaloryBankの食事記録は、栄養素などの細かい情報は扱わず、カロリーだけに特化したシンプルな仕組みです。
+      </p>
 
-          <div>
+      <!-- 3つのカードを縦に並べる -->
+      <div class="space-y-6">
+
+        <!-- カード1: 貯金の計算 -->
+        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
             <h3 class="text-lg font-bold mb-4 text-white">貯金の計算</h3>
-            <p class="mb-4">
-              プロフィール設定から算出された1日の推定消費カロリーから、その日の摂取カロリーを差し引いた差分が、あなたの"貯金"として記録されます。
+            <p class="mb-4 text-white leading-5 text-2m">
+              推定消費カロリーから摂取カロリーを差し引いた差分が"貯金"として記録されます。
             </p>
 
-            <%= image_tag "calorie1.svg", alt: "貯金の計算", class: "w-full mb-6" %>
+            <%= image_tag "calorie1.svg", alt: "貯金の計算", class: "w-full mb-6", style: "transform: scale(1.2);" %>
 
-            <p class="mb-4">
-              例えば、推定消費カロリーが2,000kcal、その日の摂取カロリーが1,800kcalだった場合、200kcalが貯金として積み立てられます。
-            </p>
-
-            <%= image_tag "calorie2.svg", alt: "マイナスの場合の例", class: "w-full" %>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-bold mb-4 text-white">目標体重の設定</h3>
-            <p class="mb-4">
-              目標体重を登録すると、達成までに必要なカロリーが自動で算出され、貯金の目標として表示されます。
-            </p>
-
-            <%= image_tag "calorie3.svg", alt: "目標体重までの進捗", class: "w-full" %>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-bold mb-4 text-white">カロリーローン</h3>
-            <p class="mb-4">
-              貯金がマイナスになってしまった時は、ローン機能で返済日数を設定できます。
-            </p>
-
-            <%= image_tag "calorie4.svg", alt: "カロリーローンの返済仕組み", class: "w-full mb-4" %>
-
-            <p class="text-sm text-white">
-              この仕組みにより、1日の枠を超えても焦らず、自分のペースで調整できます。
-            </p>
-          </div>
+            <%= image_tag "calorie2.svg", alt: "マイナスの場合の例", class: "w-full", style: "transform: scale(1.2);" %>
         </div>
+
+        <!-- カード2: 減らしたい体重の設定 -->
+        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
+            <h3 class="text-lg font-bold mb-4 text-white">減らしたい体重の設定</h3>
+            <p class="mb-4 text-white leading-5 text-2m">
+              減らしたい体重を登録すると、節制カロリーが貯金の目標として表示されます。
+            </p>
+
+            <%= image_tag "calorie5.svg", alt: "目標体重までの進捗", class: "w-full", style: "transform: scale(1.1);" %>
+        </div>
+
+        <!-- カード3: カロリーローン -->
+        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
+          <h3 class="text-lg font-bold mb-4 text-white">カロリーローン</h3>
+          <p class="mb-4 text-white leading-5 text-2m">
+            カロリーがオーバーしても、ローン機能で返済することができます。
+          </p>
+
+          <%= image_tag "calorie4.svg", alt: "カロリーローンの返済仕組み", class: "w-full", style: "transform: scale(1.2);" %>
+        </div>
+
       </div>
     </div>
   </section>

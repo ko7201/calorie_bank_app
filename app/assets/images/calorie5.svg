@@ -1,0 +1,27 @@
+<svg width="100%" viewBox="0 0 700 200" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>ホームページの統計情報カード</title>
+  
+  <!-- Card 1: 目標貯金カロリー -->
+  <rect x="10" y="10" width="155" height="180" rx="12" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+  <text x="87.5" y="55" font-size="13" text-anchor="middle" fill="#6b7280" font-weight="400">目標貯金カロリー</text>
+  <text x="87.5" y="95" font-size="28" text-anchor="middle" fill="#1f2937" font-weight="500">50,000</text>
+  <text x="87.5" y="120" font-size="12" text-anchor="middle" fill="#9ca3af">kcal</text>
+
+  <!-- Card 2: 1日の消費カロリー -->
+  <rect x="182" y="10" width="155" height="180" rx="12" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+  <text x="259.5" y="55" font-size="13" text-anchor="middle" fill="#6b7280" font-weight="400">1日の消費カロリー</text>
+  <text x="259.5" y="95" font-size="28" text-anchor="middle" fill="#1f2937" font-weight="500">2,000</text>
+  <text x="259.5" y="120" font-size="12" text-anchor="middle" fill="#9ca3af">kcal</text>
+
+  <!-- Card 3: 今日の摂取カロリー -->
+  <rect x="354" y="10" width="155" height="180" rx="12" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+  <text x="431.5" y="55" font-size="13" text-anchor="middle" fill="#6b7280" font-weight="400">今日の摂取カロリー</text>
+  <text x="431.5" y="95" font-size="28" text-anchor="middle" fill="#1f2937" font-weight="500">1,500</text>
+  <text x="431.5" y="120" font-size="12" text-anchor="middle" fill="#9ca3af">kcal</text>
+
+  <!-- Card 4: 現在の貯金 -->
+  <rect x="526" y="10" width="155" height="180" rx="12" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+  <text x="603.5" y="55" font-size="13" text-anchor="middle" fill="#6b7280" font-weight="400">現在の貯金</text>
+  <text x="603.5" y="95" font-size="28" text-anchor="middle" fill="#1f2937" font-weight="500">15,000</text>
+  <text x="603.5" y="120" font-size="12" text-anchor="middle" fill="#9ca3af">kcal</text>
+</svg>
