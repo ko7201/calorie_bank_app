@@ -33,54 +33,102 @@
     </div>
 
     <!-- 仕組みセクション -->
-    <div class="max-w-2xl mx-auto mt-16 px-4">
-      <!-- 仕組みセクションの見出しと説明 -->
-      <div class="mb-8 items-baseline gap-3">
-        <p class="font-serif text-3xl italic font-bold text-orange-200 text-center">
+    <div class="max-w-2xl mx-auto mt-16 px-4 text-center">
+      <div class="mb-8">
+        <p class="font-serif text-3xl italic font-bold text-orange-200">
           Mechanism
         </p>
       </div>
 
-      <p class="mb-12 text-white leading-5 text">
+      <p class="mb-8 text-white leading-7 text-left">
         CaloryBankの食事記録は、栄養素などの細かい情報は扱わず、カロリーだけに特化したシンプルな仕組みです。
       </p>
 
-      <!-- 3つのカードを縦に並べる -->
-      <div class="space-y-6">
+      <!-- モーダルを開くボタン -->
+      <button type="button"
+              onclick="mechanismModal.showModal()"
+              class="rounded-full bg-orange-200 px-6 py-3 font-bold text-stone-900 hover:bg-orange-300 transition">
+        仕組みを見る
+      </button>
+    </div>
 
-        <!-- カード1: 貯金の計算 -->
-        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
-            <h3 class="text-lg font-bold mb-4 text-white">貯金の計算</h3>
-            <p class="mb-4 text-white leading-5 text-2m">
+    <!-- モーダル本体 -->
+    <dialog id="mechanismModal"
+            class="fixed inset-0 m-auto w-11/12 max-w-3xl rounded-3xl p-0 backdrop:bg-black/70">
+
+      <div class="max-h-[85vh] overflow-y-auto bg-stone-900 p-6 md:p-10 text-white rounded-3xl">
+
+        <!-- モーダル上部 -->
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="font-serif text-3xl italic font-bold text-orange-200">
+            Mechanism
+          </h2>
+
+          <button type="button"
+                  onclick="mechanismModal.close()"
+                  class="text-3xl text-white hover:text-orange-200">
+            ×
+          </button>
+        </div>
+
+        <!-- 3つのカードを縦に並べる -->
+        <div class="space-y-6">
+
+          <!-- カード1: 貯金の計算 -->
+          <div class="rounded-3xl border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
+            <h3 class="text-lg font-bold mb-4 text-white">
+              貯金の計算
+            </h3>
+
+            <p class="mb-4 text-white leading-7">
               推定消費カロリーから摂取カロリーを差し引いた差分が"貯金"として記録されます。
             </p>
 
-            <%= image_tag "calorie1.svg", alt: "貯金の計算", class: "w-full mb-6", style: "transform: scale(1.2);" %>
+            <%= image_tag "calorie1.svg",
+              alt: "貯金の計算",
+              class: "w-full mb-6",
+              style: "transform: scale(1.2);" %>
 
-            <%= image_tag "calorie2.svg", alt: "マイナスの場合の例", class: "w-full", style: "transform: scale(1.2);" %>
-        </div>
+            <%= image_tag "calorie2.svg",
+              alt: "マイナスの場合の例",
+              class: "w-full",
+              style: "transform: scale(1.2);" %>
+          </div>
 
-        <!-- カード2: 減らしたい体重の設定 -->
-        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
-            <h3 class="text-lg font-bold mb-4 text-white">減らしたい体重の設定</h3>
-            <p class="mb-4 text-white leading-5 text-2m">
+          <!-- カード2: 減らしたい体重の設定 -->
+          <div class="rounded-3xl border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
+            <h3 class="text-lg font-bold mb-4 text-white">
+              減らしたい体重の設定
+            </h3>
+
+            <p class="mb-4 text-white leading-7">
               減らしたい体重を登録すると、節制カロリーが貯金の目標として表示されます。
             </p>
 
-            <%= image_tag "calorie5.svg", alt: "目標体重までの進捗", class: "w-full", style: "transform: scale(1.1);" %>
+            <%= image_tag "calorie5.svg",
+              alt: "目標体重までの進捗",
+              class: "w-full",
+              style: "transform: scale(1.1);" %>
+          </div>
+
+          <!-- カード3: カロリーローン -->
+          <div class="rounded-3xl border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
+            <h3 class="text-lg font-bold mb-4 text-white">
+              カロリーローン
+            </h3>
+
+            <p class="mb-4 text-white leading-7">
+              カロリーがオーバーしても、ローン機能で返済することができます。
+            </p>
+
+            <%= image_tag "calorie4.svg",
+              alt: "カロリーローンの返済仕組み",
+              class: "w-full",
+              style: "transform: scale(1.2);" %>
+          </div>
+
         </div>
-
-        <!-- カード3: カロリーローン -->
-        <div class="rounded-[2rem] border border-orange-200 bg-white/10 px-8 py-10 shadow-sm md:px-14 md:py-12">
-          <h3 class="text-lg font-bold mb-4 text-white">カロリーローン</h3>
-          <p class="mb-4 text-white leading-5 text-2m">
-            カロリーがオーバーしても、ローン機能で返済することができます。
-          </p>
-
-          <%= image_tag "calorie4.svg", alt: "カロリーローンの返済仕組み", class: "w-full", style: "transform: scale(1.2);" %>
-        </div>
-
       </div>
-    </div>
+    </dialog>
   </section>
 </div>
