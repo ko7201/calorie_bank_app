@@ -1,5 +1,7 @@
 <header class ="flex items-center justify-between p-4 bg-white shadow">
-  <h1 class="hoge1 text-2xl font-bold text-gray-800">Calorie_Bank</h1>
+  <h1>
+  <%= link_to "Calorie_Bank", root_path, class: "hoge1 text-2xl font-bold text-gray-800" %>
+  </h1>
   <% if user_signed_in? %>
     <%= render "shared/nav_authenticated" %>
   <% else %>
