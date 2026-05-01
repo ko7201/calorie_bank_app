@@ -1,0 +1,19 @@
+<svg width="100%" viewBox="0 0 680 140" role="img" style="" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">目標体重までの貯金進捗</title>
+
+  <!-- Label -->
+  <text x="40" y="30" font-size="14" font-weight="500" fill="var(--color-text-primary)" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:start;dominant-baseline:auto">達成まで 45% 貯金</text>
+
+  <!-- Background bar -->
+  <rect x="40" y="50" width="600" height="32" rx="8" fill="var(--color-background-tertiary)" stroke="var(--color-border-tertiary)" stroke-width="0.5" style="fill:rgb(250, 249, 245);stroke:rgba(31, 30, 29, 0.15);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Filled bar (45%) -->
+  <rect x="40" y="50" width="270" height="32" rx="8" fill="var(--color-background-info)" style="fill:rgb(214, 228, 246);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Text inside bar -->
+  <text x="175" y="73" font-size="13" font-weight="500" text-anchor="middle" fill="var(--color-text-info)" style="fill:rgb(50, 102, 173);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">+18,000 kcal</text>
+
+  <!-- Legend -->
+  <text x="40" y="110" font-size="12" fill="var(--color-text-secondary)" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">現在の貯金</text>
+  <text x="600" y="110" font-size="12" text-anchor="end" fill="var(--color-text-secondary)" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:end;dominant-baseline:auto">目標（必要カロリー）</text>
+</svg>

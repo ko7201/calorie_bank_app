@@ -9,13 +9,15 @@
   </label>
 
   <!-- PC用ナビ -->
-  <div class="hidden md:flex items-center">
+  <div class="hidden md:flex items-center gap-6">
+    <%= link_to "初めての方へ", about_path, class: "text-gray-600 hover:text-gray-800" %>
     <%= link_to "ログイン", new_user_session_path, class: "text-gray-600 hover:text-gray-800" %>
     <%= link_to "新規登録", new_user_registration_path, class: "ml-4 text-gray-600 hover:text-gray-800" %>
   </div>
 
   <!-- モバイル用ドロップダウン -->
   <div class="hidden peer-checked:block md:hidden absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-50">
+    <%= link_to "初めての方へ", about_path, class: "block px-4 py-3 text-gray-700 hover:bg-gray-100" %>
     <%= link_to "ログイン", new_user_session_path, class: "block px-4 py-3 text-gray-700 hover:bg-gray-100" %>
     <%= link_to "新規登録", new_user_registration_path, class: "block px-4 py-3 text-gray-700 hover:bg-gray-100" %>
   </div>

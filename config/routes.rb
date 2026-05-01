@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "liff/calorie_records/new", to: "calorie_records#liff_new"
   get "terms", to: "static_pages#terms"
   get "privacy", to: "static_pages#privacy"
+  get "about", to: "static_pages#about"
 
   authenticated :user do
     root "homes#index", as: :user_root
