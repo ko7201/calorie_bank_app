@@ -1,8 +1,8 @@
-<div class="max-w-4xl mx-auto px-4 py-8">
+<div class="max-w-4xl mx-auto px-6 py-2">
   <%= render "shared/header_old" %>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
     <% @meals.each do |label, meal_type| %>
-      <section class="rounded-2xl border border-white/30 bg-white/80 backdrop-blur-md shadow-lg p-6">
+      <section class="rounded-2xl border border-white/30 bg-gray-50 backdrop-blur-md shadow-xl p-6">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-lg font-semibold text-gray-900"><%= label %></h2>
 
