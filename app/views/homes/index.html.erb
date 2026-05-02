@@ -1,20 +1,35 @@
-<div class="grid grid-cols-2 gap-3">
-  <% @meals.each do |label, meal_type| %>
-    <section class="rounded-2xl border border-white/30 bg-white/35 backdrop-blur-md shadow-lg p-6">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-lg font-semibold mb-4 text-gray-900"><%= label %></h2>
-      <%= link_to "記録する", new_calorie_record_path(meal_type: meal_type), class: "text-sm text-indigo-600 hover:text-indigo-800" %>
-    </div>
-    <% data = @calorie_records.find { |r| r.meal_type == meal_type.to_s } %>
-    <% if data.present? %>
-        <p><%= data.calorie %> kcal</p>
-        <p><%= data.memo %></p>
-        <% if data.image.present? %>
-          <p><%= image_tag data.image_url, class: "mt-2 rounded w-full max-h-48 object-contain" %></p>
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <%= render "shared/header_old" %>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <% @meals.each do |label, meal_type| %>
+      <section class="rounded-2xl border border-white/30 bg-white/80 backdrop-blur-md shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-gray-900"><%= label %></h2>
+
+          <%= link_to "記録する",
+            new_calorie_record_path(meal_type: meal_type),
+            class: "text-sm font-medium text-orange-500 hover:text-orange-600" %>
+        </div>
+
+        <% data = @calorie_records.find { |r| r.meal_type == meal_type.to_s } %>
+
+        <% if data.present? %>
+          <p class="text-2xl font-bold text-gray-900">
+            <%= data.calorie %>
+            <span class="text-sm font-medium text-gray-500">kcal</span>
+          </p>
+
+          <% if data.memo.present? %>
+            <p class="mt-2 text-sm text-gray-600"><%= data.memo %></p>
+          <% end %>
+
+          <% if data.image.present? %>
+            <p><%= image_tag data.image_url, class: "mt-4 rounded-xl w-full max-h-48 object-contain" %></p>
+          <% end %>
+        <% else %>
+          <p class="text-sm text-gray-500">記録がありません</p>
         <% end %>
-    <% else %>
-        <p>記録がありません</p>
+      </section>
     <% end %>
-    </section>
-  <% end %>
+  </div>
 </div>
