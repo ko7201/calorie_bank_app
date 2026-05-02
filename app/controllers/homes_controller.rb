@@ -12,6 +12,7 @@ class HomesController < ApplicationController
         @meals = MEALS
         @calorie_records = current_user.calorie_records.today_total
         set_home_stats
+        set_total_saved_calorie
     end
 
     private
@@ -31,5 +32,27 @@ class HomesController < ApplicationController
     @bmr = current_user.profile.bmr.round
     @calorie_saved = [ @bmr - @today_total, 0 ].max
     @rice_kcal_per_bowl = current_user.profile.rice_kcal_per_bowl
+  end
+
+  def set_total_saved_calorie
+    records_by_date = current_user.calorie_records.group_by do |record|
+      record.eat_date
+    end
+
+    total = 0
+
+    records_by_date.each do |_date, records|
+      daily_intake = 0
+
+      records.each do |record|
+        daily_intake += record.calorie
+      end
+
+      daily_saved = @bmr - daily_intake
+
+      total += daily_saved
+    end
+
+    @total_saved_calorie = total
   end
 end
