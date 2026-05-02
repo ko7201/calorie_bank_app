@@ -35,24 +35,25 @@ class HomesController < ApplicationController
   end
 
   def set_total_saved_calorie
-    records_by_date = current_user.calorie_records.group_by do |record|
-      record.eat_date
-    end
-
-    total = 0
-
-    records_by_date.each do |_date, records|
-      daily_intake = 0
-
-      records.each do |record|
-        daily_intake += record.calorie
-      end
-
-      daily_saved = @bmr - daily_intake
-
-      total += daily_saved
-    end
-
-    @total_saved_calorie = total
+  records_by_date = current_user.calorie_records.group_by do |record|
+    record.eat_date
   end
+
+
+  total = 0
+
+  records_by_date.each do |date, records|
+    daily_intake = 0
+
+    records.each do |record|
+      daily_intake += record.calorie
+    end
+
+    daily_saved = @bmr - daily_intake
+    total += daily_saved
+
+  end
+
+  @total_saved_calorie = total
+end
 end
