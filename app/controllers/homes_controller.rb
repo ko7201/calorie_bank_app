@@ -51,7 +51,6 @@ class HomesController < ApplicationController
 
     daily_saved = @bmr - daily_intake
     total += daily_saved
-
   end
 
   @total_saved_calorie = total
