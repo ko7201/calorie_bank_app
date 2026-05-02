@@ -1,33 +1,43 @@
-<%= form_with model: calorie_record, local: true do |f| %>
+<div class="min-h-screen flex justify-center px-4 py-10">
+
+  <%= form_with model: calorie_record, local: true do |f| %>
     <%= f.hidden_field :meal_type, value: meal_type %>
     <%= f.hidden_field :image, value: calorie_record.cached_image_data %>
-  <div class="flex flex-col items-center space-y-4">
 
-    <div class="w-full max-w-sm">
-      <%= f.label :base_calorie, "カロリー", class: "block mb-1 text-sm font-medium" %>
-      <%= f.text_field :base_calorie,
-      inputmode: "numeric",
-      class: "w-full border rounded px-3 py-2" %>
+    <div class="moji w-full max-w-sm space-y-6 text-white">
+      <div>
+        <%= f.label :base_calorie, "カロリー", class: "block mb-1 text-sm" %>
+        <%= f.text_field :base_calorie,
+          inputmode: "numeric",
+          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+      </div>
+
+      <div>
+        <%= f.label :rice_bowls, "ご飯（杯）", class: "block mb-1 text-sm" %>
+        <%= f.number_field :rice_bowls,
+          min: 0,
+          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+      </div>
+
+      <div>
+        <%= f.label :memo, "メモ", class: "block mb-1 text-sm" %>
+        <%= f.text_area :memo,
+          rows: 4,
+          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+      </div>
+
+      <div>
+        <%= f.label :image, "画像", class: "block mb-1 text-sm" %>
+        <%= f.file_field :image,
+          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+      </div>
+
+      <div>
+        <%= f.submit "保存",
+          class: "w-full rounded-md bg-orange-400 px-6 py-3 text-white font-semibold hover:bg-orange-300" %>
+      </div>
+
     </div>
+  <% end %>
 
-    <div class="w-full max-w-sm">
-      <%= f.label :rice_bowls, "ご飯(杯)", class: "block mb-1 text-sm font-medium" %>
-      <%= f.number_field :rice_bowls, min: 0, class: "w-full border rounded px-3 py-2" %>
-    </div>
-
-    <div class="w-full max-w-sm">
-      <%= f.label :memo, "メモ", class: "block mb-1 text-sm font-medium" %>
-      <%= f.text_area :memo, class: "w-full border rounded px-3 py-2" %>
-    </div>
-
-    <div class="w-full max-w-sm">
-      <%= f.label :image, "画像", class: "block mb-1 text-sm font-medium" %>
-      <%= f.file_field :image, class: "w-full border rounded px-3 py-2" %>
-    </div>
-
-    <div class="w-full max-w-sm">
-      <%= f.submit "保存", class: "w-full bg-indigo-600 text-white py-2 rounded" %>
-    </div>
-
-  </div>
-<% end %>
+</div>
