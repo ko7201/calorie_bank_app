@@ -28,7 +28,13 @@
     <% end %>
   </div>
 
-  <% progress = (@total_saved_calorie.to_f / @calorie_goal.to_f * 100).clamp(0, 100) %>
+  <% progress =
+    if @calorie_goal.to_i > 0
+      (@total_saved_calorie.to_f / @calorie_goal.to_f * 100).clamp(0, 100)
+    else
+      0
+    end
+  %>
 
   <div class="mt-3">
     <div class="flex justify-between text-xl mb-1">
