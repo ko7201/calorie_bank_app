@@ -5,6 +5,7 @@ class CalorieRecord < ApplicationRecord
   before_validation :set_eat_date, on: :create
   before_validation :set_rice_kcal_per_bowl, on: %i[create update]
   before_validation :calculate_total_calories, on: %i[create update]
+  before_validation :parse_ai_foods
 
   enum :meal_type, {
     breakfast: 0,
@@ -54,5 +55,13 @@ class CalorieRecord < ApplicationRecord
     rice_calorie = bowls * rice_kcal_per_bowl.to_i
     self.base_calorie = base_calorie.to_i
     self.calorie = base_calorie.to_i + rice_calorie
+  end
+
+  def parse_ai_foods
+    if ai_foods.present?
+      self.ai_foods = JSON.parse(ai_foods)
+    end
+  rescue JSON::ParserError
+      self.ai_foods = nil
   end
 end
