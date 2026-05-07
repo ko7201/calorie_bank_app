@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_04_21_035359) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_07_065625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,10 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_21_035359) do
     t.integer "rice_kcal_per_bowl", default: 0, null: false
     t.integer "base_calorie"
     t.jsonb "image_data"
+    t.jsonb "ai_foods"
+    t.string "ai_dish_name"
+    t.integer "ai_confidence"
+    t.boolean "is_donburi", default: false, null: false
     t.index ["user_id"], name: "index_calorie_records_on_user_id"
   end
 
