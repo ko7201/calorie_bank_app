@@ -19,6 +19,19 @@
             <span class="text-sm font-medium text-gray-500">kcal</span>
           </p>
 
+          <% if data.ai_dish_name.present? %>
+            <p class="mt-1 text-sm font-medium text-gray-700"><%= data.ai_dish_name %></p>
+          <% end %>
+
+          <% if data.ai_foods.present? %>
+            <div class="mt-2 text-xs text-gray-500 space-y-0.5">
+
+              <% data.ai_foods.each do |food| %>
+                <div><%= food["name"] %> <%= food["calories"] %>kcal</div>
+              <% end %>
+            </div>
+          <% end %>
+
           <% if data.memo.present? %>
             <p class="mt-2 text-sm text-gray-600"><%= data.memo %></p>
           <% end %>
