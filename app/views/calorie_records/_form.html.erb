@@ -1,43 +1,80 @@
 <div class="min-h-screen flex justify-center px-4 py-10">
+  <div class="moji w-full max-w-sm space-y-6 text-white">
 
-  <%= form_with model: calorie_record, local: true do |f| %>
-    <%= f.hidden_field :meal_type, value: meal_type %>
-    <%= f.hidden_field :image, value: calorie_record.cached_image_data %>
+    <%= form_with model: calorie_record, local: true do |f| %>
+      <%= f.hidden_field :meal_type, value: meal_type %>
 
-    <div class="moji w-full max-w-sm space-y-6 text-white">
-      <div>
-        <%= f.label :base_calorie, "カロリー", class: "block mb-1 text-sm" %>
-        <%= f.text_field :base_calorie,
-          inputmode: "numeric",
-          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+      <% if calorie_record.cached_image_data.present? %>
+        <%= f.hidden_field :image, value: calorie_record.cached_image_data %>
+      <% end %>
+
+      <%= f.hidden_field :ai_dish_name, value: calorie_record.ai_dish_name %>
+      <%= f.hidden_field :ai_confidence, value: calorie_record.ai_confidence %>
+      <%= f.hidden_field :ai_foods, value: calorie_record.ai_foods.to_json if calorie_record.ai_foods.present? %>
+      <%= f.hidden_field :is_donburi, value: calorie_record.is_donburi %>
+
+      <div class="space-y-6">
+
+        <div>
+          <%= f.label :image, "画像", class: "block mb-1 text-sm" %>
+          <%= f.file_field :image,
+            class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+        </div>
+
+        <% if @analyzed %>
+          <div class="bg-white/20 rounded-lg p-4 space-y-3">
+            <h3 class="text-lg font-bold">解析結果</h3>
+
+            <div>
+              <span class="text-sm">料理名：</span>
+              <span class="font-bold"><%= calorie_record.ai_dish_name %></span>
+            </div>
+
+            <% if calorie_record.ai_foods.present? %>
+              <div class="text-sm space-y-1">
+                <span>食品内訳：</span>
+                <% calorie_record.ai_foods.each do |food| %>
+                  <div class="ml-2">
+                    <%= food["name"] %> - <%= food["grams"] %>g - <%= food["calories"] %>kcal
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div>
+          <%= f.label :base_calorie, "カロリー", class: "block mb-1 text-sm" %>
+          <%= f.text_field :base_calorie,
+            inputmode: "numeric",
+            class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+        </div>
+
+        <div>
+          <%= f.label :rice_bowls, "ご飯（杯）", class: "block mb-1 text-sm" %>
+          <%= f.number_field :rice_bowls,
+            min: 0,
+            class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+        </div>
+
+        <div>
+          <%= f.label :memo, "メモ", class: "block mb-1 text-sm" %>
+          <%= f.text_area :memo,
+            rows: 4,
+            class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <%= f.submit "解析",
+            formaction: analyze_calorie_records_path,
+            class: "w-full rounded-md bg-blue-500 px-6 py-3 text-white font-semibold hover:bg-blue-400" %>
+
+          <%= f.submit "保存",
+            class: "w-full rounded-md bg-orange-400 px-6 py-3 text-white font-semibold hover:bg-orange-300" %>
+        </div>
+
       </div>
+    <% end %>
 
-      <div>
-        <%= f.label :rice_bowls, "ご飯（杯）", class: "block mb-1 text-sm" %>
-        <%= f.number_field :rice_bowls,
-          min: 0,
-          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
-      </div>
-
-      <div>
-        <%= f.label :memo, "メモ", class: "block mb-1 text-sm" %>
-        <%= f.text_area :memo,
-          rows: 4,
-          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
-      </div>
-
-      <div>
-        <%= f.label :image, "画像", class: "block mb-1 text-sm" %>
-        <%= f.file_field :image,
-          class: "w-full rounded-lg bg-white/90 text-gray-900 px-4 py-3" %>
-      </div>
-
-      <div>
-        <%= f.submit "保存",
-          class: "w-full rounded-md bg-orange-400 px-6 py-3 text-white font-semibold hover:bg-orange-300" %>
-      </div>
-
-    </div>
-  <% end %>
-
+  </div>
 </div>

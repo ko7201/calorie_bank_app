@@ -16,6 +16,24 @@ class CalorieRecordsController < ApplicationController
     render :new
   end
 
+  def analyze
+    @calorie_record = CalorieRecord.new(calorie_record_params)
+    @calorie_record.user = current_user
+    @meal_type = calorie_record_params[:meal_type]
+
+      if @calorie_record.image.present?
+        result = GeminiService.call(@calorie_record)
+        if result
+          @analyzed = true
+        else
+          flash.now[:alert] = "カロリーの推定に失敗しました。再度時間を空けてお試しください。"
+        end
+      else
+        flash.now[:alert] = "画像を添付してください。"
+      end
+      render :new, status: :unprocessable_entity
+  end
+
   def create
     record = current_user.calorie_records.find_or_initialize_by(
       eat_date: Date.current,
@@ -23,17 +41,7 @@ class CalorieRecordsController < ApplicationController
     )
 
     if record.update(calorie_record_params)
-      if record.image.present?
-        new_calorie = GeminiService.call(record)
-        if new_calorie
-          record.save!
-          redirect_to user_root_path, notice: "カロリーを推定しました（#{new_calorie} kcal）"
-        else
-          redirect_to user_root_path, alert: "カロリーの推定に失敗しました。再度時間を空けてお試しください。"
-        end
-      else
-        redirect_to user_root_path, notice: "保存しました"
-      end
+      redirect_to user_root_path, notice: "保存しました"
     else
       redirect_to user_root_path, alert: "失敗しました"
     end
@@ -51,7 +59,8 @@ class CalorieRecordsController < ApplicationController
   private
 
   def calorie_record_params
-    params.require(:calorie_record).permit(:base_calorie, :meal_type, :memo, :rice_bowls, :image)
+    params.require(:calorie_record).permit(:base_calorie, :meal_type, :memo, :rice_bowls, :image,
+                                            :ai_dish_name, :ai_confidence, :ai_foods, :is_donburi)
   end
 
   def set_calorie_record
