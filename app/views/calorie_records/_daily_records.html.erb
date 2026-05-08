@@ -1,26 +1,42 @@
-<div class="mb-4 rounded-lg border bg-white p-4 shadow-sm">
+<div class="mb-4 rounded-2xl border border-white/30 bg-gray-50 backdrop-blur-md shadow-xl p-6">
   <!-- 日付ヘッダー -->
-  <div class="flex items-center justify-between border-b pb-2 mb-2">
-    <div class="font-semibold">
-      <%= date %>
+  <div class="flex items-center justify-between border-b pb-2 mb-3">
+    <div class="text-lg font-semibold text-gray-900">
+      <%= l date, format: :long %>
     </div>
-
-    <div class="text-sm text-gray-600">
+    <div class="text-sm font-medium text-gray-500">
       合計 <%= records.sum(&:calorie) %> kcal
     </div>
   </div>
 
   <!-- 内訳 -->
-  <div class="space-y-1 text-sm">
+  <div class="space-y-3 text-sm">
     <% records.each do |record| %>
-      <div class="flex justify-between">
-        <div>
-          <%= record.meal_type %>
+      <div class="flex justify-between items-start">
+        <div class = 'flex-1 min-w-0 mr-4'>
+          <span class="font-medium text-gray-900">
+            <%= t("activerecord.attributes.calorie_record.meal_type.#{record.meal_type}") %>
+          </span>
+
+          <% if record.ai_dish_name.present? %>
+            <span class="text-gray-500">- <%= record.ai_dish_name %></span>
+          <% end %>
+
           <% if record.memo.present? %>
-            - <%= record.memo %>
+            <p class="mt-1 text-xs text-gray-400"><%= record.memo %></p>
+          <% end %>
+
+          <% if record.ai_foods.present? %>
+            <div class="mt-1 text-xs text-gray-400">
+              <% record.ai_foods.each do |food| %>
+                <span><%= food["name"] %> <%= food["calories"] %>kcal</span>
+                <% unless food == record.ai_foods.last %> / <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-        <div>
+
+        <div class="font-bold text-gray-900 whitespace-nowrap">
           <%= record.calorie %> kcal
         </div>
       </div>
