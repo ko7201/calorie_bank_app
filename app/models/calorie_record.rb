@@ -15,7 +15,7 @@ class CalorieRecord < ApplicationRecord
     }
 
     scope :data_list, -> {
-        order(eat_date: :asc, meal_type: :asc, created_at: :desc).limit(30)
+        order(eat_date: :desc, meal_type: :asc, created_at: :desc).limit(30)
       }
 
     scope :today, -> {
