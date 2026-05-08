@@ -69,3 +69,11 @@
   font-style: normal;
 }
 
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.flash-message {
+  animation: fadeOut 0.5s ease-in-out 3s forwards;
+}
