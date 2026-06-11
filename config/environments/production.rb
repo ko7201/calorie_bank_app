@@ -3,6 +3,8 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   config.hosts << "caloriebank.jp"
   config.hosts << "www.caloriebank.jp"
+  config.hosts << "calorie-bank.onrender.com"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
