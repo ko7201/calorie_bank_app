@@ -27,12 +27,22 @@ services:
       - .env
     environment:
       - TZ=Asia/Tokyo
+      - SELENIUM_DRIVER_URL=http://selenium:4444/wd/hub
     depends_on:
       db:
         condition: service_healthy
+      selenium:
+        condition: service_started
     volumes:
       - .:/app
       - bundle_data:/usr/local/bundle
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+    volumes:
+      - /dev/shm:/dev/shm
 
 volumes:
   bundle_data:
