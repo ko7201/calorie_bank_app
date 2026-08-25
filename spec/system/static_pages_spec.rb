@@ -34,5 +34,11 @@ RSpec.describe "StaticPages", type: :system do
     click_link "ログイン", visible: true
     expect(page).to have_content("ログイン")
   end
+
+  it "トップページから新規登録ページに遷移できる" do
+    visit root_path
+    click_link "新規登録", visible: true
+    expect(page).to have_content("新規登録")
+  end
 end
 
