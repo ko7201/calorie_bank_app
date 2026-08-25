@@ -28,5 +28,11 @@ RSpec.describe "StaticPages", type: :system do
       expect(page).to have_content("貯金の計算")
     end
   end
+
+  it "トップページからログインページに遷移できる" do
+    visit root_path
+    click_link "ログイン", visible: true
+    expect(page).to have_content("ログイン")
+  end
 end
 
