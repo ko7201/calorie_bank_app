@@ -20,6 +20,13 @@ RSpec.describe "StaticPages", type: :system do
     expect(page).to have_content("初めての方へ")
   end
 
+  it "仕組みを見るボタンを押すとモーダルが表示される" do
+    visit root_path
+    click_button "仕組みを見る"
 
+    within("#mechanismModal") do
+      expect(page).to have_content("貯金の計算")
+    end
+  end
 end
 
