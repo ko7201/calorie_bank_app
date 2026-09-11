@@ -13,7 +13,7 @@ RSpec.describe "StaticPages", type: :system do
     expect(page).to have_content("プライバシーポリシー")
   end
 
-  #PC表示ページでのテスト
+  # PC表示ページでのテスト
   it "トップページから初めての方へページに遷移できる" do
     visit root_path
     click_link "初めての方へ", visible: true
@@ -41,4 +41,3 @@ RSpec.describe "StaticPages", type: :system do
     expect(page).to have_content("新規登録")
   end
 end
-
