@@ -19,4 +19,9 @@ RSpec.describe "ログイン", type: :system do
 
     expect(page).to have_content("過去の記録を見る")
   end
+
+  it 'ログインページにgoogleログインボタンが表示される' do
+    visit new_user_session_path
+    expect(page).to have_button("Googleでログイン")
+  end
 end
