@@ -22,6 +22,14 @@ RSpec.describe "ログイン", type: :system do
 
   it 'ログインページにgoogleログインボタンが表示される' do
     visit new_user_session_path
+
     expect(page).to have_button("Googleでログイン")
+  end
+
+  it 'ゲストとしてログインできる' do
+    visit root_path
+    click_link "ゲストとしてログイン"
+
+    expect(page).to have_content("ゲストユーザーとしてログインしました。")
   end
 end
