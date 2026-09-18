@@ -7,4 +7,18 @@ RSpec.describe "Users::Sessions", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+
+  describe "DELETE /users/sign_out" do
+    let(:user) { User.create!(email: "test4@example.com", password: "password") }
+
+    before do
+      sign_in user
+    end
+
+    it "ログアウトできる" do
+      delete destroy_user_session_path
+      expect(response).to have_http_status(303)
+    end
+  end
 end
