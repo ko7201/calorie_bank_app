@@ -45,4 +45,9 @@ RSpec.describe "CalorieRecords", type: :request do
     expect(record.rice_bowls).to eq(1)
     expect(record.memo).to eq("updated")
   end
+
+  it "過去の記録一覧ページにアクセスできる" do
+    get calorie_records_path
+    expect(response).to have_http_status(:success)
+  end
 end
